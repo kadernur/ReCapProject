@@ -49,9 +49,9 @@ Veriye ulaşmak için yazdığım katman kısacası SQL kodlarımın mevcut oldu
               + Color.cs
 
 
-# SQL TABLO İÇERİKLERİ
+### [SQL TABLO İÇERİKLERİ](https://github.com/kadernur/ReCapProject/blob/master/SQLQuery2Recap.sql)
 
-## CAR TABLOSU
+#### CAR TABLOSU
 
 |CarId | BrandId | ColorId | ModelYear | DailyPrice | Description |
 |------ |--------|---------|-----------|------------|------------------|
@@ -62,7 +62,7 @@ Veriye ulaşmak için yazdığım katman kısacası SQL kodlarımın mevcut oldu
 |NULL|NULL|NULL|NULL|NULL|NULL|
 
 
-## BRAND TABLOSU
+#### BRAND TABLOSU
 |BranId|BrandName|
 |-------|---------|
 |1|Tesla|
@@ -71,7 +71,7 @@ Veriye ulaşmak için yazdığım katman kısacası SQL kodlarımın mevcut oldu
 |NULL|NULL|
 
 
-## COLOR TABLOSU
+#### COLOR TABLOSU
 
 |ColorId|ColorName|
 |-------|---------|
