@@ -11,18 +11,18 @@ Bu projede katmanlı mimari yapısını kullanmaya çalıştım ve projeyi oluş
 
 Bu katmanda iş kodlarımı yazdım.
   + [Abstract:open_file_folder:  :(İlgili soyut Sınıflarımı içerir.)](https://github.com/kadernur/ReCapProject/tree/master/Business/Abstract)
-                           + ICarService.cs
+     + ICarService.cs
  + [ Concrete:open_file_folder: : (Somut sınıflarımı içerir.)](https://github.com/kadernur/ReCapProject/tree/master/Business/Concrete)
-                            + CarManager.cs
+    + CarManager.cs
 
 ### DATA ACCESS KATMANI 
 Veriye ulaşmak için yazdığım katman kısacası SQL kodlarımın mevcut olduğu katman
 
  + [Abstract:open_file_folder:  :(İlgili soyut Sınıflarımı içerir.)](https://github.com/kadernur/ReCapProject/tree/master/DataAccess/Abstract)
-                        + ICarDal.cs
-                        + IBrandDal.cs
-                        + IColorDal.cs
-                        + IEntityRepository.cs  :point_right:   Bu class'ım  bu klasördeki var olan diğer class'larımın kullanacağı Generic yapısını oluşturur.
+     + ICarDal.cs
+     + IBrandDal.cs
+      + IColorDal.cs
+     + IEntityRepository.cs  :point_right:   Bu class'ım  bu klasördeki var olan diğer class'larımın kullanacağı Generic yapısını oluşturur.
      
      
  + [ Concrete  :open_file_folder: : (Somut sınıflarımı içerir.)](https://github.com/kadernur/ReCapProject/tree/master/DataAccess/Concrete)
@@ -39,7 +39,7 @@ Veriye ulaşmak için yazdığım katman kısacası SQL kodlarımın mevcut oldu
 ### ENTİTİES
  Bu katman yardımcı katmanımdır.
   + [Abstract :open_file_folder: :(İlgili soyut Sınıflarımı içerir.](https://github.com/kadernur/ReCapProject/tree/master/Entities/Abstract)
-                + IEntity.cs
+    + IEntity.cs
    
  + [ Concrete:open_file_folder:  : (Somut sınıflarımı içerir.)](https://github.com/kadernur/ReCapProject/tree/master/Entities/Concrete)
   :point_right: Bu klasör ise nesnelerimi ve nesnelere ait özelliklerimin tutulduğu klasördür.
