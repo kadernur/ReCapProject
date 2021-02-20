@@ -29,11 +29,11 @@ namespace Business.Concrete
          //Araba günlük fiyatı 0'dan büyük olmalıdır.
         public void Add(Car car)
         {
-            if(car.DailyPrice>=0 || car.Description.Length<2)
+           /* if(car.DailyPrice>=0 || car.Descriptions.Length<2)
             {
                 throw new NotImplementedException("Ücret 0'dan büyük ve Açıklama iki karakterden oluşmalı");
 
-            }
+            }*/
             _carDal.Add(car);
 
         }
@@ -65,7 +65,12 @@ namespace Business.Concrete
 
         public List<Car> GetById(int id)
         {
-            return _carDal.GetAll(p => p.Id == id);
+            return _carDal.GetAll(p => p.CarId == id);
+        }
+
+        Car ICarService.GetById(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

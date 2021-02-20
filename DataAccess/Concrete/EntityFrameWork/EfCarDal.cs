@@ -1,5 +1,7 @@
-﻿using DataAccess.Abstract;
+﻿using Core.DataAccess.EntityFramework;
+using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,62 +11,52 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntityFrameWork
 {
-    public class EfCarDal : ICarDal
+    public class EfCarDal : EfEntityRepositoryBase<Car, ReCapDatabaseCotext>, ICarDal
     {
-        public void Add(Car entity)
+        public List<CarDetailDto> GetCarDetails()
         {
-            //hem işimiz bittikten sonra gereksiz bellek harcamamak ve 
-            //performans artışını sağlamak için using bloğunu kullandım.
-
-            using (ReCapDatabaseCotext reCapDatabaseCotext=new ReCapDatabaseCotext())
+            using (ReCapDatabaseCotext context=new ReCapDatabaseCotext())
             {
-                var addedEntity = reCapDatabaseCotext.Entry(entity);
-                addedEntity.State = EntityState.Added;
-                reCapDatabaseCotext.SaveChanges();
+                var result = from car in context.Cars
+                             join brand in context.Brands
+                             on car.BrandId equals brand.BrandId
+                             join color in context.Colors
+                             on car.ColorId equals color.ColorId
+
+                             select new CarDetailDto 
+                             { 
+                                
+                                 ColorName=color.ColorName,
+                                 BrandName=brand.BrandName,
+                                 DailyPrice=Convert.ToDouble(car.DailyPrice)
+                             
+                             
+                             
+                             };
+                return result.ToList();
+
 
             }
-        }
 
-        public void Delete(Car entity)
-        {
-            using (ReCapDatabaseCotext reCapDatabaseCotext=new ReCapDatabaseCotext())
-            {
-                var deletedEntity = reCapDatabaseCotext.Entry(entity);
-                deletedEntity.State = EntityState.Deleted;
-                reCapDatabaseCotext.SaveChanges();
-            }
-        }
-
-        public Car Get(Expression<Func<Car, bool>> filter)
-        {
-            using (ReCapDatabaseCotext reCapDatabaseCotext=new ReCapDatabaseCotext())
-            {
-                //tek bir data getiren methodumuz.
-                return reCapDatabaseCotext.Set<Car>().SingleOrDefault(filter);
-            } 
-        }
-
-        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
-        {
-            //filtre zorunluluğu yok, Filtre kullanmazsam bütün dataları liste halinde döndürür.
-
-            using (ReCapDatabaseCotext reCapDatabaseCotext=new ReCapDatabaseCotext())
-            {
-                return filter == null
-                    ? reCapDatabaseCotext.Set<Car>().ToList()
-                    : reCapDatabaseCotext.Set<Car>().Where(filter).ToList();
-            }
-        }
-
-        public void Update(Car entity)
-        {
-            using (ReCapDatabaseCotext reCapDatabaseCotext=new ReCapDatabaseCotext())
-            {
-                var updatedEntity = reCapDatabaseCotext.Entry(entity);
-                updatedEntity.State = EntityState.Modified;
-                reCapDatabaseCotext.SaveChanges();
-
-            }
         }
     }
 }
+
+//CarName, BrandName, ColorName, DailyPrice
+/*
+*select CarName, BrandName, ColorName, DailyPrice from Cars
+inner join Brands on Cars.BrandId = Brands.BrandId
+inner join Colors on cars.ColorId = Colors.ColorId
+*
+*
+ *using (NorthwindContext context = new NorthwindContext())
+            {
+                var result = from p in context.Products
+                    join c in context.Categories 
+                    on p.CategoryId equals c.CategoryId
+                    select new ProductDetailDTO
+                    {ProductId = p.ProductId, ProductName = p.ProductName, CategoryName = c.CategoryName, UnitsInStock = p.UnitsInStock};
+                return result.ToList();
+            }
+ *
+ */
