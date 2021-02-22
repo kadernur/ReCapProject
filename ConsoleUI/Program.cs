@@ -15,11 +15,11 @@ namespace ConsoleUI
             //ColorTest();
             // DtoTest();
 
-            //CarCrudTest();
+            CarCrudTest();
 
 
             // ColorCrudTest();
-            BrandCrudTest();
+            //BrandCrudTest();
 
         }
 
@@ -28,13 +28,13 @@ namespace ConsoleUI
             BrandManager _brandManager = new BrandManager(new EfBrandDal());
 
             Console.WriteLine("Tüm markalarımız:");
-            foreach (var brand in _brandManager.GetAll())
+            foreach (var brand in _brandManager.GetAll().Data)
             {
                 Console.WriteLine(brand.BrandName);
             }
 
             Console.WriteLine("İstediğiniz marka:");
-            Console.WriteLine(_brandManager.GetById(1));
+            Console.WriteLine(_brandManager.GetById(1).Data.BrandName);
 
             Console.WriteLine("Marka eklendi.");
             _brandManager.Add(new Brand() { BrandName = "Hyundai" });
@@ -51,13 +51,13 @@ namespace ConsoleUI
             ColorManager _colorManager = new ColorManager(new EfColorDal());
 
             Console.WriteLine("Tüm renklerimiz:");
-            foreach (var color in _colorManager.GetAll())
+            foreach (var color in _colorManager.GetAll().Data)
             {
                 Console.WriteLine(color.ColorName);
             }
 
             Console.WriteLine("İstediğiniz renk:");
-            Console.WriteLine(_colorManager.GetById(1).ColorName);
+            Console.WriteLine(_colorManager.GetById(1).Data.ColorName);
 
             Console.WriteLine("renk eklendi.");
             _colorManager.Add(new Color() { ColorName = "Turuncu" });
@@ -73,13 +73,13 @@ namespace ConsoleUI
         {
             CarManager _carManager = new CarManager(new EfCarDal());
             Console.WriteLine("Tüm Araçlarımız: ");
-            foreach (var car in _carManager.GetAll())
+            foreach (var car in _carManager.GetAll().Data)
             {
                 Console.WriteLine(car.Descriptions);
             }
 
             Console.WriteLine("\n \n " + "İstediğimiz araç :");
-            Console.WriteLine(_carManager.GetById(1));
+            Console.WriteLine(_carManager.GetById(1).Data);
 
             Console.WriteLine("Aracınız Eklendi: ");
             _carManager.Add(new Car() {
@@ -114,7 +114,7 @@ namespace ConsoleUI
         {
             ColorManager colorManager = new ColorManager(new EfColorDal());
 
-            foreach (var color in colorManager.GetAll())
+            foreach (var color in colorManager.GetAll().Data)
 
             {
                 Console.WriteLine(color.ColorName);
@@ -137,19 +137,19 @@ namespace ConsoleUI
 
               }*/
 
-            foreach (var car in carManager.GetAll())
+            foreach (var car in carManager.GetAll().Data)
             {
                 Console.WriteLine(car.CarId + "     " + car.ModelYear + "     " + car.DailyPrice + "        " + car.Descriptions);
             }
             Console.WriteLine("****************************");
 
-            foreach (var car in carManager.GetCarsByBrandId(2))
+            foreach (var car in carManager.GetCarsByBrandId(2).Data)
             {
                 Console.WriteLine(car.Descriptions);
             }
             Console.WriteLine("****************************");
 
-            foreach (var car in carManager.GetCarsByColorId(3))
+            foreach (var car in carManager.GetCarsByColorId(3).Data)
             {
                 Console.WriteLine(car.Descriptions);
             }
@@ -164,7 +164,7 @@ namespace ConsoleUI
                 ModelYear = "2015"
             });
 
-            foreach (var car in carManager.GetAll())
+            foreach (var car in carManager.GetAll().Data)
             {
                 Console.WriteLine(car.CarId + "  " + car.ModelYear + "   " + car.DailyPrice + "   " + car.Descriptions);
             }
