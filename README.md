@@ -4,7 +4,15 @@
 ![cAR](https://user-images.githubusercontent.com/63293055/107887599-3e4c0600-6f18-11eb-81c9-acd5b5b4bf31.jpg)
 
 @ReCapProject projem  benim gelişimimle beraber gelişmekte olan güzel bir proje. :+1:
-Bu projede katmanlı mimari yapısını kullanmaya çalıştım ve projeyi oluştururken SOLID prensiplerine uygun kodlar yazmaya çalıştım ve çalışmaya devam edeceğim. :collision:
+Bu projede katmanlı mimari yapısını kullanmaya çalıştım ve projeyi oluştururken SOLID prensiplerine uygun kodlar yazmaya çalıştım ve çalışmaya devam edeceğim. Bu projede "CODE RAFACTORİNG (Kodları iyileştirme) " yaparak ilerleme sağlayacağım. :collision:
+
+### :loud_sound::boom: GÜNCELLEME(20.02.2021)
+:purple_circle: Projeye Core katmanı eklendi.  
+:purple_circle: DTOs klasörü eklendi.  
+:purple_circle: Code refactoring yaparak IEntitiyRepository,IEntity classları Core katmanına yerleştirildi.  
+:purple_circle: IEntityRepositoryBase class'ı oluşturuldu.  
+:purple_circle: Car,Color ve Brand nesnelerinin Crud operasyonları eklendi.program.cs 'de test edildi.  
+
 
 ## İçindekiler
  ### BUSİNESS KATMANI
@@ -12,8 +20,27 @@ Bu projede katmanlı mimari yapısını kullanmaya çalıştım ve projeyi oluş
 Bu katmanda iş kodlarımı yazdım.
   + [Abstract:open_file_folder:  :(İlgili soyut Sınıflarımı içerir.)](https://github.com/kadernur/ReCapProject/tree/master/Business/Abstract)
      + ICarService.cs
+     + :purple_circle:IColorService.cs
+     + :purple_circle:IBrandService.cs
  + [ Concrete:open_file_folder: : (Somut sınıflarımı içerir.)](https://github.com/kadernur/ReCapProject/tree/master/Business/Concrete)
     + CarManager.cs
+    + :purple_circle:ColorManager.cs
+    + :purple_circle:BrandManager.cs
+    
+    
+### :purple_circle: CORE KATMANI
+Evrensel kodlarımızı kullandığımız  katmanımızdır.  
+Core katmanı diğer katmanları referans almaz.
++ [ DataAceess :open_file_folder:](https://github.com/kadernur/ReCapProject/tree/master/Core/DataAccess)
+     + [EntityFramework :open_file_folder:](https://github.com/kadernur/ReCapProject/tree/master/Core/DataAccess/EntityFramework)
+         + EfEntityRepository.cs :point_right: Burda kodları evrensel hale getirip farklı sistemler'e implemente etmemi sağlar.
+     + IEntityRepository :point_right: Data Access katmanındaki bu class'ı evrensel olabilmesi için Core katmanına taşıdım.
+ + [Entities :open_file_folder:](https://github.com/kadernur/ReCapProject/tree/master/Core/Entities)  
+          + IDto.cs   
+          + IEntity.cs :point_right:  Entites katmanından buraya taşıdım.  
+                     
+
+
 
 ### DATA ACCESS KATMANI 
 Veriye ulaşmak için yazdığım katman kısacası SQL kodlarımın mevcut olduğu katman
@@ -21,8 +48,8 @@ Veriye ulaşmak için yazdığım katman kısacası SQL kodlarımın mevcut oldu
  + [Abstract:open_file_folder:  :(İlgili soyut Sınıflarımı içerir.)](https://github.com/kadernur/ReCapProject/tree/master/DataAccess/Abstract)
      + ICarDal.cs
      + IBrandDal.cs
-      + IColorDal.cs
-     + IEntityRepository.cs  :point_right:   Bu class'ım  bu klasördeki var olan diğer class'larımın kullanacağı Generic yapısını oluşturur.
+     + IColorDal.cs
+     + IEntityRepository.cs :x: :point_right:   Bu class'ım  bu klasördeki var olan diğer class'larımın kullanacağı Generic yapısını oluşturur.
      
      
  + [ Concrete  :open_file_folder: : (Somut sınıflarımı içerir.)](https://github.com/kadernur/ReCapProject/tree/master/DataAccess/Concrete)
@@ -39,7 +66,7 @@ Veriye ulaşmak için yazdığım katman kısacası SQL kodlarımın mevcut oldu
 ### ENTİTİES
  Bu katman yardımcı katmanımdır.
   + [Abstract :open_file_folder: :(İlgili soyut Sınıflarımı içerir.](https://github.com/kadernur/ReCapProject/tree/master/Entities/Abstract)
-    + IEntity.cs
+    + IEntity.cs :x:
    
  + [ Concrete:open_file_folder:  : (Somut sınıflarımı içerir.)](https://github.com/kadernur/ReCapProject/tree/master/Entities/Concrete)
   :point_right: Bu klasör ise nesnelerimi ve nesnelere ait özelliklerimin tutulduğu klasördür.
@@ -47,7 +74,9 @@ Veriye ulaşmak için yazdığım katman kısacası SQL kodlarımın mevcut oldu
               + Car.cs
               + Brand.cs
               + Color.cs
-
+              
++ [DTOs :purple_circle::open_file_folder: (Veri tabanını ilişkisel tablolarını içerir. Join işlemleri burda yapılır.)](https://github.com/kadernur/ReCapProject/tree/master/Entities/DTOs)  
+      + :purple_circle: CarDetailDto.cs 
 
 ### [SQL TABLO İÇERİKLERİ](https://github.com/kadernur/ReCapProject/blob/master/SQLQuery2Recap.sql)
 
@@ -79,6 +108,7 @@ Veriye ulaşmak için yazdığım katman kısacası SQL kodlarımın mevcut oldu
 |2|Siyah|
 |3|Mavi|
 |4|Gri|
+|5||Turuncu|
 |NULL|NULL|
 
 
