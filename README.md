@@ -13,6 +13,13 @@ Bu projede katmanlı mimari yapısını kullanmaya çalıştım ve projeyi oluş
 :purple_circle: IEntityRepositoryBase class'ı oluşturuldu.  
 :purple_circle: Car,Color ve Brand nesnelerinin Crud operasyonları eklendi.program.cs 'de test edildi.  
 
+### :loud_sound::boom: GÜNCELLEME(22.02.2021)
+:brown_circle: Projeye Result yaoıları eklendi.  
+:brown_circle: Magic strings yapısı kullanıldı.  
+:brown_circle: Business classında code refactoring  yapıldı. Abstract ve Concrete sınıflarındaki class'lar generic yapısıyla değiştirildi.
+
+
+
 
 ## İçindekiler
  ### BUSİNESS KATMANI
@@ -26,6 +33,9 @@ Bu katmanda iş kodlarımı yazdım.
     + CarManager.cs
     + :purple_circle:ColorManager.cs
     + :purple_circle:BrandManager.cs
+
++ [:brown_circle: Constants :open_file_folder:(sabitlerimizi içeren klasör](https://github.com/kadernur/ReCapProject/tree/master/Business/Constants)    
+          + Messages.cs :brown_circle: :point_right:magic string ifadelerimizi içeren classtır. Yani projede kullandığımız sabit mesajları içerir.
     
     
 ### :purple_circle: CORE KATMANI
@@ -39,8 +49,20 @@ Core katmanı diğer katmanları referans almaz.
           + IDto.cs   
           + IEntity.cs :point_right:  Entites katmanından buraya taşıdım.  
                      
+ + [:brown_circle:Utilities :open_file_folder:](https://github.com/kadernur/ReCapProject/tree/master/Core/Utilities/Results) Restful(JSON) sürecinin gereksinimlerini içerir. Yani Request(istek) ve Response(yanıt) sürecini yönetebilmek için ortam hazırlar.
+    + :brown_circle: Results :open_file_folder:  
+      + :brown_circle:Abstract  
+          + IDataResult.cs :point_right: bu interface message ,success yanında data da içermesini istenen işlemlerde kullanılır.  
+          + IResult.cs :point_right: void tipinde olan veriler için success ve message bilgilerini içerir
 
-
+   + :brown_circle:Concrete :poin_right:Result türleri için işlemin  başarılı ve başarısız olma durumuna göre geçerli classları içeirir.  
+      + DataResult.cs
+      + ErrorDataResult.cs
+      + SuccessDataResult.cs
+      + Result.cs
+      + SuccessResult.cs
+      + ErrorResult.cs
+     
 
 ### DATA ACCESS KATMANI 
 Veriye ulaşmak için yazdığım katman kısacası SQL kodlarımın mevcut olduğu katman
