@@ -1,4 +1,5 @@
-﻿using Business.Concrete;
+﻿using Business.Abstract;
+using Business.Concrete;
 using DataAccess.Concrete;
 using DataAccess.Concrete.EntityFrameWork;
 using Entities.Concrete;
@@ -20,6 +21,9 @@ namespace ConsoleUI
 
             // ColorCrudTest();
             //BrandCrudTest();
+
+            IRentalService _rentalManager = new RentalManager(new EfRentalDal());
+            Console.WriteLine(_rentalManager.Add(new Rental { CarId = 2, CustomerId = 1, RentDate = new DateTime(2021, 01, 01), ReturnDate = new DateTime(2021, 03, 11) }).Message);
 
         }
 
@@ -79,7 +83,7 @@ namespace ConsoleUI
             }
 
             Console.WriteLine("\n \n " + "İstediğimiz araç :");
-            Console.WriteLine(_carManager.GetById(1).Data);
+            Console.WriteLine(_carManager.GetById(1012).Data.CarName);
 
             Console.WriteLine("Aracınız Eklendi: ");
             _carManager.Add(new Car() {
@@ -87,12 +91,13 @@ namespace ConsoleUI
                 ColorId = 4,
                 DailyPrice = 2,
                 Descriptions = "Fiat Linea",
+                CarName="Yeni Model",
                 ModelYear = "2012"
 
 
             });
             Console.WriteLine("Aracınız Silindi");
-            _carManager.Delete(new Car() { CarId = 21 });
+            _carManager.Delete(new Car() { CarId = 2012 });
         }
 
         private static void DtoTest()

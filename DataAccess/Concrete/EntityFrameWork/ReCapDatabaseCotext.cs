@@ -6,12 +6,12 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntityFrameWork
 {
-   public   class ReCapDatabaseCotext:DbContext
+   public   class ReCapDatabaseContext:DbContext
     {
         //veri tabanına bağlantımı sağladığım bölüm.
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=ReCapDatabase;Trusted_connection=true");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=ReCapDatabasee;Trusted_connection=true");
         }
 
         //veri tabanı verileri ile kendi tablolarımdaki verileri eşleştirdim.
@@ -19,6 +19,9 @@ namespace DataAccess.Concrete.EntityFrameWork
         public DbSet<Color> Colors { get; set; }
         public DbSet<Brand> Brands { get; set; }
 
+        public DbSet<User> Users { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Rental> Rentals { get; set; }
 
 
     }

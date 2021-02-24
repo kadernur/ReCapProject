@@ -11,11 +11,11 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntityFrameWork
 {
-    public class EfCarDal : EfEntityRepositoryBase<Car, ReCapDatabaseCotext>, ICarDal
+    public class EfCarDal : EfEntityRepositoryBase<Car, ReCapDatabaseContext>, ICarDal
     {
         public List<CarDetailDto> GetCarDetails()
         {
-            using (ReCapDatabaseCotext context=new ReCapDatabaseCotext())
+            using (ReCapDatabaseContext context=new ReCapDatabaseContext())
             {
                 var result = from car in context.Cars
                              join brand in context.Brands

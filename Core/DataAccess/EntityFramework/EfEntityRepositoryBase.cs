@@ -18,31 +18,31 @@ namespace Core.DataAccess.EntityFramework
             //hem işimiz bittikten sonra gereksiz bellek harcamamak ve 
             //performans artışını sağlamak için using bloğunu kullandım.
 
-            using (TContext reCapDatabaseCotext = new TContext())
+            using (TContext reCapDatabaseContext = new TContext())
             {
-                var addedEntity = reCapDatabaseCotext.Entry(entity);
+                var addedEntity = reCapDatabaseContext.Entry(entity);
                 addedEntity.State = EntityState.Added;
-                reCapDatabaseCotext.SaveChanges();
+                reCapDatabaseContext.SaveChanges();
 
             }
         }
 
         public void Delete(TEntity entity)
         {
-            using (TContext reCapDatabaseCotext = new TContext())
+            using (TContext reCapDatabaseContext = new TContext())
             {
-                var deletedEntity = reCapDatabaseCotext.Entry(entity);
+                var deletedEntity = reCapDatabaseContext.Entry(entity);
                 deletedEntity.State = EntityState.Deleted;
-                reCapDatabaseCotext.SaveChanges();
+                reCapDatabaseContext.SaveChanges();
             }
         }
 
         public TEntity Get(Expression<Func<TEntity, bool>> filter)
         {
-            using (TContext reCapDatabaseCotext = new TContext())
+            using (TContext reCapDatabaseContext = new TContext())
             {
                 //tek bir data getiren methodumuz.
-                return reCapDatabaseCotext.Set<TEntity>().SingleOrDefault(filter);
+                return reCapDatabaseContext.Set<TEntity>().SingleOrDefault(filter);
             }
         }
 
@@ -50,21 +50,21 @@ namespace Core.DataAccess.EntityFramework
         {
             //filtre zorunluluğu yok, Filtre kullanmazsam bütün dataları liste halinde döndürür.
 
-            using (TContext reCapDatabaseCotext = new TContext())
+            using (TContext reCapDatabaseContext = new TContext())
             {
                 return filter == null
-                    ? reCapDatabaseCotext.Set<TEntity>().ToList()
-                    : reCapDatabaseCotext.Set<TEntity>().Where(filter).ToList();
+                    ? reCapDatabaseContext.Set<TEntity>().ToList()
+                    : reCapDatabaseContext.Set<TEntity>().Where(filter).ToList();
             }
         }
 
         public void Update(TEntity entity)
         {
-            using (TContext reCapDatabaseCotext = new TContext())
+            using (TContext reCapDatabaseContext = new TContext())
             {
-                var updatedEntity = reCapDatabaseCotext.Entry(entity);
+                var updatedEntity = reCapDatabaseContext.Entry(entity);
                 updatedEntity.State = EntityState.Modified;
-                reCapDatabaseCotext.SaveChanges();
+                reCapDatabaseContext.SaveChanges();
 
             }
         }
