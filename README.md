@@ -18,6 +18,9 @@ Bu projede katmanlı mimari yapısını kullanmaya çalıştım ve projeyi oluş
 :brown_circle: Magic strings yapısı kullanıldı.  
 :brown_circle: Business classında code refactoring  yapıldı. Abstract ve Concrete sınıflarındaki class'lar generic yapısıyla değiştirildi.
 
+### :loud_sound::boom: GÜNCELLEME(01.03.2021)
+:large_blue_circle: Projeye WebAPI katmanı eklendi.Bu katmanda Business katmanındaki tüm servislerin API karşılğı yazılıp postman test aracında test edildi.
+
 
 
 
@@ -99,6 +102,12 @@ Veriye ulaşmak için yazdığım katman kısacası SQL kodlarımın mevcut oldu
               
 + [DTOs :purple_circle::open_file_folder: (Veri tabanını ilişkisel tablolarını içerir. Join işlemleri burda yapılır.)](https://github.com/kadernur/ReCapProject/tree/master/Entities/DTOs)  
       + :purple_circle: CarDetailDto.cs 
+      
+      
+      
+      
+### :large_blue_circle: WebAPI  
+[Sadece veri transferi için kullanılır.RestFull mimarisini destekleyen katmandır. bu katmandaki Controller gelen bütün istekleri karşılar.(RESFUL: Http protokolü:Bir kaynağa ulaşmak için izlediğimiz yol diyebiliriz.)](https://github.com/kadernur/ReCapProject/tree/master/WebAPI)
 
 ### [SQL TABLO İÇERİKLERİ](https://github.com/kadernur/ReCapProject/blob/master/SQLQuery2Recap.sql)
 
