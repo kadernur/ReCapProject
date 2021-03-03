@@ -30,7 +30,7 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSingleton<ICarService, CarManager>();
+           /* services.AddSingleton<ICarService, CarManager>();
             services.AddSingleton<ICarDal, EfCarDal>();
             services.AddSingleton<IColorService, ColorManager>();
             services.AddSingleton<IColorDal, EfColorDal>();
@@ -42,7 +42,7 @@ namespace WebAPI
             services.AddSingleton<IUserDal, EfUserDal>();
 
             services.AddSingleton<ICustomerService, CustomerManager>();
-            services.AddSingleton<ICustomerDal, EfCustomerDal>();
+            services.AddSingleton<ICustomerDal, EfCustomerDal>();*/
 
             
         }
