@@ -26,22 +26,11 @@ namespace Business.Concrete
 
 
 
-          // Sisteme yeni araba eklendiğinde aşağıdaki kuralları çalıştırınız.
-
-          //Araba ismi minimum 2 karakter olmalıdır
- 
-         //Araba günlük fiyatı 0'dan büyük olmalıdır.
+       
         public IResult Add(Car car)
         {
-           /* if(car.DailyPrice>=0 || car.Descriptions.Length<2)
-            {
-                throw new NotImplementedException("Ücret 0'dan büyük ve Açıklama iki karakterden oluşmalı");
-
-            }*/
-           if(car.CarName.Length<2)
-            {
-                return new ErrorResult(Messages.NameInvalid);
-            }
+          
+          
             _carDal.Add(car);
 
             return new SuccessResult(Messages.Added);
