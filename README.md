@@ -21,7 +21,10 @@ Bu projede katmanlı mimari yapısını kullanmaya çalıştım ve projeyi oluş
 ### :loud_sound::boom: GÜNCELLEME(01.03.2021)
 :large_blue_circle: Projeye WebAPI katmanı eklendi.Bu katmanda Business katmanındaki tüm servislerin API karşılğı yazılıp postman test aracında test edildi.
 
-
+### :loud_sound::boom: GÜNCELLEME(03.03.2021)
+:white_circle: Projeye Autofac desteği eklendi.  
+:white_circle:FluentValidation desteği eklendi.  
+:white_circle:Aop desteği eklendi(ValidationAspect).  
 
 
 ## İçindekiler
@@ -38,7 +41,14 @@ Bu katmanda iş kodlarımı yazdım.
     + :purple_circle:BrandManager.cs
 
 + [:brown_circle: Constants :open_file_folder:(sabitlerimizi içeren klasör](https://github.com/kadernur/ReCapProject/tree/master/Business/Constants)    
-          + Messages.cs :brown_circle: :point_right:magic string ifadelerimizi içeren classtır. Yani projede kullandığımız sabit mesajları içerir.
+          + Messages.cs :brown_circle: :point_right:magic string ifadelerimizi içeren classtır. Yani projede kullandığımız sabit mesajları içerir.  
+ 
+ + [:white_circle: DependencyResolvers:open_file_folder:](https://github.com/kadernur/ReCapProject/tree/master/Business/DependencyResolvers/Autofac) 
+ Autofac desteği sağladık.IOC yapısını burda sağlamış olduk.  
+ + [:white_circle: ValidationRules :open_file_folder:](https://github.com/kadernur/ReCapProject/tree/master/Business/ValidationRules/FluentValidation)  
+ Var olan varlığı iş kurallarına dahil etmek için yapısal olarak uygun olup olmadığını kontrol yapımız burda mevcuttur.
+ 
+ 
     
     
 ### :purple_circle: CORE KATMANI
@@ -65,6 +75,11 @@ Core katmanı diğer katmanları referans almaz.
       + Result.cs
       + SuccessResult.cs
       + ErrorResult.cs
+  + [:white_circle: Aspects :open_file_folder:](https://github.com/kadernur/ReCapProject/tree/master/Core/Aspects/Autofac/Validation)
+  AOP yapısı kullanıldı.
+  
+ + [:white_circle: CrossCuttingConcerns :open_file_folder:](https://github.com/kadernur/ReCapProject/tree/master/Core/CrossCuttingConcerns/Validation)  
+ Validation yapısını ValidationTool altında genelleştirdim.
      
 
 ### DATA ACCESS KATMANI 
