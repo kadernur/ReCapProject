@@ -74,18 +74,22 @@ namespace Core.Utilities.Helpers
         }
 
 
+       
 
 
-
-        private static(string path,string pathAndName) PathAndNameCreator(IFormFile file)
+        private static (string path, string pathAndName) PathAndNameCreator(IFormFile file)
         {
             FileInfo fileInfo = new FileInfo(file.FileName);
             string fileExtension = fileInfo.Extension;
 
-            var uniqueFileName = Guid.NewGuid().ToString("N") + fileExtension;
+           
+
+
+
+           var uniqueFileName = Guid.NewGuid().ToString("N") + fileExtension;
 
             string result = $@"{Environment.CurrentDirectory +
-                @"\wwroot\Images"}\{uniqueFileName}";
+                @"\wwroot\images"}\{uniqueFileName}";
             return (result, $@"\Images\{uniqueFileName}");
 
 
