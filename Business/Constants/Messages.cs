@@ -17,7 +17,6 @@ namespace Business.Constants
         public static string Deleted = "Silindi";
         public static string Updated = "Güncellendi";
         public static string RentInvalıd = "Araba zaten kiralandı";
-
-
+        public static string CarOfImageLimitExceeded="Resim Limiti aşıldı.";
     }
 }
