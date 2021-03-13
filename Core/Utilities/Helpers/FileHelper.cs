@@ -89,7 +89,7 @@ namespace Core.Utilities.Helpers
            var uniqueFileName = Guid.NewGuid().ToString("N") + fileExtension;
 
             string result = $@"{Environment.CurrentDirectory +
-                @"\wwroot\images"}\{uniqueFileName}";
+                @"\wwroot\Images"}\{uniqueFileName}";
             return (result, $@"\Images\{uniqueFileName}");
 
 
