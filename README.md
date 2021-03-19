@@ -27,6 +27,13 @@ Bu projede katmanlı mimari yapısını kullanmaya çalıştım ve projeyi oluş
 :white_circle:Aop desteği eklendi(ValidationAspect).  
 
 
+### :loud_sound::boom: GÜNCELLEME(19.03.2021)
+:purple_circle: Cache, Transaction ve Performance aspectlerini eklendi  
+:purple_circle:JWT entegrasyonu yapıldı    
+:purple_circle:CarImages (Araba Resimleri) tablosu oluşturuldu.  
+:purple_circle:Api üzerinden arabaya resim ekleyecek sistem yazıldı.  
+
+
 ## İçindekiler
  ### BUSİNESS KATMANI
 
