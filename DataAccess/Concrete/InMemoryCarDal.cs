@@ -69,12 +69,22 @@ namespace DataAccess.Concrete
             return _cars;
         }
 
+        public List<CarDetailDto> GetAllCarDetailsByFilter(CarDetailFilterDto filter)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Car> GetById(int id)
         {
             return _cars.Where(c =>c.CarId==id).ToList();
         }
 
         public List<CarDetailDto> GetCarDetails()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<CarDetailDto> GetCarDetails(Expression<Func<CarDetailDto, bool>> filter = null)
         {
             throw new NotImplementedException();
         }

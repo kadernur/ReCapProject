@@ -84,6 +84,7 @@ namespace WebAPI
                 app.UseDeveloperExceptionPage();
             }
             app.UseCors(ApplicationBuilder => ApplicationBuilder.WithOrigins("http://localhost:4200").AllowAnyHeader());
+            app.UseStaticFiles(); //images için
             app.UseHttpsRedirection();
 
             app.UseRouting();
